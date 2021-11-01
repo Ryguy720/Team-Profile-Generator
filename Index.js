@@ -1,9 +1,9 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-const Employee = require('./Employee');
-const Engineer = require('./Engineer');
-const Intern = require('./Intern');
+const Employee = require('./lib/Employee');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
 
 // TODO: Create an array of questions for user input
 const promptEmployee = () => {
@@ -30,8 +30,8 @@ const promptEmployee = () => {
       </body>
       </html>
 `
-console.log(readmetxt)
-fs.writeFileSync("README.md",readmetxt,(err,data)=>{
+console.log(htmlpage)
+fs.writeFileSync("index.html",htmlpage,() =>{
   if(err)throw err
 })
 console.log("Readme generator")
