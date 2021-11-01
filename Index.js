@@ -4,10 +4,11 @@ const fs = require('fs');
 const Employee = require('./lib/Employee');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
+const Manager = require('./lib/Manager');
 
 // TODO: Create an array of questions for user input
 const promptEmployee = () => {
-    return inquirer.prompt([
+    return inquirer.Employee([
       {
         type: 'input',
         name: 'title',
@@ -46,4 +47,4 @@ function init() {}
 
 // Function call to initialize app
 init();
-promptUser();
+promptEmployee();
