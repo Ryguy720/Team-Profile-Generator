@@ -1,4 +1,30 @@
 {
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "Team Generator",
+  "main": "Index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "scripts": {
+    
+    "start":"node Index.js",
+    "test":"jest --verbose tests/*.*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ryguy720/Team-Profile-Generator.git"
+  },
+  "keywords": [
+    "inquirer"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ryguy720/Team-Profile-Generator/issues"
+  },
+  "homepage": "https://github.com/Ryguy720/Team-Profile-Generator#readme",
   "dependencies": {
     "inquirer": "^8.2.0",
     "jest": "^27.3.1"

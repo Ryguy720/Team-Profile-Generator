@@ -5,7 +5,8 @@ const Employee = require('./lib/Employee');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
-
+const { title } = require('process');
+var Engineerarry = ""
 // TODO: Create an array of questions for user input
 const promptEmployee = () => {
   inquirer.prompt([
@@ -18,7 +19,9 @@ const promptEmployee = () => {
 
 
   ]).then(response => {
+    
     switch (response.title) {
+
       case "Engineer":
         addEngineer()
         break;
@@ -32,8 +35,51 @@ const promptEmployee = () => {
         writeToFile()
         break
     }
+    
 
   })
+}
+function addEngineer(){
+  inquirer.prompt([
+    {
+      type: 'input',
+      name: 'name',
+      message: 'Enter Enginerr name?',
+
+    },
+    {
+      type: 'input',
+      name: 'id',
+      message: 'Enter Enginerr id?',
+
+    },
+    {
+      type: 'input',
+      name: 'email',
+      message: 'Enter Enginerr email?',
+
+    },
+    {
+      type: 'input',
+      name: 'gitHub',
+      message: 'Enter Enginerr GitHub?',
+
+    }
+
+  ]).then(({name,id,email,github}) => {
+     var Employee = new Engineer(name,id,email,github)
+     Engineerarry += `<div class="card" style="width: 18rem;">
+     <div class="card-body">
+       <h5 class="card-title">Employee Name:${Employee.name}</h5>
+       <h5 class="card-title">Designation:${Employee.getRole()}</h5>
+       <p class="card-text">Employee ID: ${Employee.id}</p>
+       <a href="https://github.com/${Employee.gitHub}" class="btn btn-primary">github</a>
+       <a href="mailto:${Employee.email}" class="btn btn-primary">Email</a>
+     </div>
+   </div>`
+    console.log(Engineerarry)
+  })
+  
 }
 
 // TODO: Create a function to write README file
