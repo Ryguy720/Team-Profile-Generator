@@ -6,7 +6,9 @@ const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
 const { title } = require('process');
-var Engineerarry = ""
+var engineerarry = ""
+var managerarry = ""
+var internarry = ""
 // TODO: Create an array of questions for user input
 const promptEmployee = () => {
   inquirer.prompt([
@@ -68,21 +70,106 @@ function addEngineer() {
 
   ]).then(({ name, id, email, github }) => {
     var Employee = new Engineer(name, id, email, github)
-    Engineerarry += `<div class="card" style="width: 18rem;">
+    engineerarry += `<div class="card" style="width: 18rem;">
      <div class="card-body">
        <h5 class="card-title">Employee Name:${Employee.name}</h5>
-       <h5 class="card-title">Designation:${Employee.getRole()}</h5>
+       <h5 class="card-title">Designation:Engineer</h5>
        <p class="card-text">Employee ID: ${Employee.id}</p>
        <a href="https://github.com/${Employee.gitHub}" class="btn btn-primary">github</a>
        <a href="mailto:${Employee.email}" class="btn btn-primary">Email</a>
      </div>
    </div>`
-    console.log(Engineerarry);
+    console.log(engineerarry);
     promptEmployee()
   })
 
 }
+function addIntern() {
+  inquirer.prompt([
+    {
+      type: 'input',
+      name: 'name',
+      message: 'Enter Intern name?',
 
+    },
+    {
+      type: 'input',
+      name: 'id',
+      message: 'Enter Intern id?',
+
+    },
+    {
+      type: 'input',
+      name: 'email',
+      message: 'Enter Intern email?',
+
+    },
+    {
+      type: 'input',
+      name: 'school',
+      message: 'Enter Intern School?',
+
+    }
+
+  ]).then(({ name, id, email, school }) => {
+    var Employee = new Intern(name, id, email, school)
+    internarry += `<div class="card" style="width: 18rem;">
+     <div class="card-body">
+       <h5 class="card-title">Employee Name:${Employee.name}</h5>
+       <h5 class="card-title">Designation:Intern</h5>
+       <p class="card-text">Employee ID: ${Employee.id}</p>
+       <p class="card-title">School:${Employee.school}</p>
+       <a href="mailto:${Employee.email}" class="btn btn-primary">Email me</a>
+     </div>
+   </div>`
+    console.log(internarry);
+    promptEmployee()
+  })
+
+}
+function addManager() {
+  inquirer.prompt([
+    {
+      type: 'input',
+      name: 'name',
+      message: 'Enter Manager name?',
+
+    },
+    {
+      type: 'input',
+      name: 'id',
+      message: 'Enter Manager id?',
+
+    },
+    {
+      type: 'input',
+      name: 'email',
+      message: 'Enter Manager email?',
+
+    },
+    {
+      type: 'input',
+      name: 'officenumber',
+      message: 'Enter Manager Number?',
+
+    }
+
+  ]).then(({ name, id, email, officeNumber }) => {
+    var Employee = new Manager(name, id, email, officeNumber)
+    managerarry += `<div class="card" style="width: 18rem;">
+     <div class="card-body">
+       <h5 class="card-title">Employee Name:${Employee.name}</h5>
+       <h5 class="card-title">Designation:Manager</h5>
+       <p class="card-text">Employee ID: ${Employee.id}</p>
+       <p class="btn btn-primary">OfficeNumber: ${Employee.officeNumber}</p>
+       <a href="mailto:${Employee.email}" class="btn btn-primary">Email me</a>
+     </div>
+   </div>`
+    console.log(managerarry);
+    promptEmployee()
+  })
+
+}
 // TODO: Create a function to write README file
 function writeToFile() {
   var htmlpage1 = `
@@ -115,7 +202,7 @@ function writeToFile() {
   </body>
 </html>
 `
-  var HTMLCode = htmlpage1 + Engineerarry + Managerarray + Internarray + htmlpage2
+  var HTMLCode = htmlpage1 + engineerarry + managerarry + internarry + htmlpage2
     fs.writeFileSync("index.html", HTMLCode, (err, res) => {
       if (err) throw err;
       process.exit(0)
