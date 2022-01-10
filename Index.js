@@ -15,7 +15,7 @@ const promptEmployee = () => {
     {
       type: 'list',
       name: 'title',
-      message: 'What is your project title?',
+      message: 'What is your Employee title?',
       choices: ['Engineer', 'Intern', 'Manager', 'Exit App']
     }
 
@@ -207,7 +207,7 @@ function writeToFile() {
       if (err) throw err;
       process.exit(0)
     })
-  console.log("Readme generator")
+  console.log("Team Profile Generator")
 
 }
 
